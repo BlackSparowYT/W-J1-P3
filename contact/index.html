@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
+    </head>
+    
+    <body>
+        <header>
+            <nav>
+                <div id="navbar-desktop">
+                    <div class="navbar-desktop-sitename">
+                        <h2 class="t1">F</h2>
+                        <h2 class="t2">.</h2>
+                        <h2 class="t3">R</h2>
+                        <h2 class="t4">.</h2>
+                        <h2 class="t5">&nbsp;</h2>
+                        <h2 class="t6">J</h2>
+                        <h2 class="t7">o</h2>
+                        <h2 class="t8">s</h2>
+                        <h2 class="t9">t</h2>
+                        <h2 class="t10">e</h2>
+                        <h2 class="t11">n</h2>
+                    </div>
+                    <div class="navbar-desktop-items">
+                        <a class="t1" href="../index.html"><h3>Home</h3></a>
+                        <a class="t2" href="../projects/index.php"><h3>Projects</h3></a>
+                        <a class="t3" href="../contact/index.html"><h3>Contact</h3></a>
+                        <a class="t4" href="../about/index.html"><h3>About</h3></a>
+                    </div>
+                </div>
+
+
+                
+                <div id="navbar-mobile">
+                    <div class="navbar-mobile-sitename">
+                        <h2 class="t1">F</h2>
+                        <h2 class="t2">.</h2>
+                        <h2 class="t3">R</h2>
+                        <h2 class="t4">.</h2>
+                        <h2 class="t5">&nbsp;</h2>
+                        <h2 class="t6">J</h2>
+                        <h2 class="t7">o</h2>
+                        <h2 class="t8">s</h2>
+                        <h2 class="t9">t</h2>
+                        <h2 class="t10">e</h2>
+                        <h2 class="t11">n</h2>
+                    </div>
+                    <div class="navbar-mobile-items">
+                        <a onclick="openNav()"><h3>&#9776;</h3></a>
+                    </div>
+                    <div id="navbar-mobile-fullscreen" class="nav-overlay">
+                        <a href="javascript:void(0)" class="closebtn t1" onclick="closeNav()">&times;</a>
+                        <div class="nav-overlay-content">
+                            <a class="t1" href="../index.html"><h3>Home</h3></a>
+                            <a class="t2" href="../projects/index.php"><h3>Projects</h3></a>
+                            <a class="t3" href="../contact/index.html"><h3>Contact</h3></a>
+                            <a class="t4" href="../about/index.html"><h3>About</h3></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    function openNav() { document.getElementById("navbar-mobile-fullscreen").style.height = "100%"; }
+                    function closeNav() { document.getElementById("navbar-mobile-fullscreen").style.height = "0%"; }
+                </script>
+            </nav>
+        </header>
+
+        <title>Contact || F.R. Josten</title>
+        <link rel="stylesheet" href="../styles.css">
+
+        <main class="contact-page">
+
+            <div class="image-background">
+                <!-- particles.js container --> 
+                <div id="particles-js"></div> 
+
+                <!-- particles.js lib - https://github.com/VincentGarreau/particles.js --> 
+                <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+
+                <!-- particles.js script -->
+                <script src="../scripts.js"></script>
+            </div>
+
+            <div class="hero">
+                <!--<div class="overlay">-->
+                    <h1 class="t1">C</h1>
+                    <h1 class="t2">o</h1>
+                    <h1 class="t3">n</h1>
+                    <h1 class="t4">t</h1>
+                    <h1 class="t5">a</h1>
+                    <h1 class="t6">c</h1>
+                    <h1 class="t7">t</h1>
+                <!--</div>-->
+            </div>
+            <div class="hero-arrow" id="t1">
+                <a href="#scroll-arrow"><img id="scroll-arrow" src="../images/Arrow.png" /></a>
+            </div>
+            <div class="contact-block">
+                <h2>How to get in contact</h2>
+                <p>
+                    <br>You can easily get in contact via email or social media.
+                    <br>My email is <a href="mailto:support@design-atlas.nl">support@design-atlas.nl</a> for any questions you need.
+                    <br>Or send me a DM on social media:
+                    <br> - <a href="https://twitter.com/BlackSparowYT" target="_blank" style="color: var(--gray);">Twitter: @BlackSparowYT</a>
+                    <br> - <a style="color: var(--gray); cursor: pointer;" >Discord: Black_SparowYT#5629</a>
+                    <!-- onclick="myalert()"  <script> function myalert() { alert("Discord username:\n " + "Black_SparowYT#5629"); } </script>-->
+                </p>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>
