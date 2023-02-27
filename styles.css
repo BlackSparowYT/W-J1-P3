@@ -735,20 +735,27 @@ canvas {
 
 /** Menu | Hero **/
 .menu-page .hero {
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
     height: 40vh;
     width: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     z-index: 50;
     background-color: var(--gray);
 }
 
+.menu-page .hero .hero-text {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
 .menu-page .hero h1 {
-    margin: 0px;
+    margin: 0 0 5vh 0;
     padding: 0px;
     color: var(--black);
     transition: all .2s ease-in;
@@ -756,17 +763,46 @@ canvas {
     pointer-events: none;
 }
 
-.menu-page .hero-arrow {
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
+.menu-page .select-cat {
     height: 10vh;
-    width: auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 50;
-    opacity: 0.2;
+    transition: all 0.3s;
+}
+
+.menu-page .select-cat select {
+    min-width: 150px;
+    margin-right: 20px;
+    padding: 7px;
+    border-radius: 10px;
+    border: 0;
+    background-color: var(--blue);
+    color: var(--white);
+    transition: all 0.3s;
+}
+
+.menu-page .select-cat select:hover {
+    transform: scale(1.05);
+    transition: all 0.3s;
+}
+
+.menu-page .select-cat select:focus-visible {
+    border: 1px solid var(--black);
+}
+
+.menu-page .select-cat #result {
+    padding: 7px;
+    background-color: var(--blue);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.menu-page .select-cat #result:hover {
+    transform: scale(1.05);
+    transition: all 0.3s;
 }
 
 
@@ -784,7 +820,6 @@ canvas {
 }
 
 .menu-page .flexbox {
-    min-height: 80vh;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -796,9 +831,9 @@ canvas {
 }
 
 .menu-page .flexbox .block {
-    width: 20%;
     min-width: 300px;
-    margin: 2.5%;
+    width: 300px;
+    margin: 2%;
     height: 350px;
     background-color: var(--gray);
     color: var(--black);
@@ -847,7 +882,7 @@ canvas {
     border-radius: 10px;
 }
 
-.menu-page .flexbox .block .sub-categorie {
+.menu-page .flexbox .block .sub_categorie {
     width: 45px;
     height: 60px;
     position: relative;
@@ -860,4 +895,10 @@ canvas {
     height: 196px;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+@media only screen and (max-width: 652px) {
+    .menu-page .flexbox {
+        justify-content: space-around;
+    }
 }
