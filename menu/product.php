@@ -14,17 +14,7 @@
         <nav>
                 <div id="navbar-desktop">
                     <div class="navbar-desktop-sitename">
-                        <h2 class="t1">F</h2>
-                        <h2 class="t2">.</h2>
-                        <h2 class="t3">R</h2>
-                        <h2 class="t4">.</h2>
-                        <h2 class="t5">&nbsp;</h2>
-                        <h2 class="t6">J</h2>
-                        <h2 class="t7">o</h2>
-                        <h2 class="t8">s</h2>
-                        <h2 class="t9">t</h2>
-                        <h2 class="t10">e</h2>
-                        <h2 class="t11">n</h2>
+                        <h2 class="t1">Mikado's</h2>
                     </div>
                     <div class="navbar-desktop-items">
                         <a class="t1" href="../index.html"><h3>Home</h3></a>
