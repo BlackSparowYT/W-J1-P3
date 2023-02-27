@@ -95,12 +95,12 @@
 
                     $urlid = $_GET["id"];
 
-                    $query = "SELECT * FROM `projects` WHERE id = $urlid";
+                    $query = "SELECT * FROM `menu` WHERE id = $urlid";
                     if ($is_query_run = mysqli_query($link, $query)) {
                         while ($query_executed = mysqli_fetch_assoc ($is_query_run))
                         {
-                            echo "<div class='projects-flex-box'>";
                             echo "<img src='".$query_executed['image']."' />";
+                            echo "<div class='product-flex-box'>";
                             echo "<h2>".$query_executed['name']."</h2>";
                             echo "<p class='desc'>".$query_executed['large-desc']."</p>";
                             echo "<p class='bttns'>".$query_executed['buttons']."</p>";
