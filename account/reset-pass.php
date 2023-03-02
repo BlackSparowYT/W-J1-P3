@@ -36,7 +36,7 @@
         if ($new_password === $confirm_password) {
             // If the passwords match, update the user's password in the database
             $sql = "UPDATE users SET password='$new_password' WHERE id='$id' AND password='$current_password'";
-            mysqli_query($conn, $sql);
+            mysqli_query($link, $sql);
 
             // Log the user out and redirect to the login page
             session_destroy();
