@@ -7,26 +7,30 @@
 
     // Check if the user has submitted the registration form
     if (isset($_POST['register'])) {
-        // Get the email and password from the form
+        // Get the email, username, and password from the form
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $username = substr($_POST["email"], 0, stripos($_POST["email"], "@") );
+        $username = $_POST['username'];
 
         // Check if the email already exists
-        $sql = "SELECT * FROM `users` WHERE email = '$email'";
-        $result = mysqli_query($link, $sql);
+        $stmt = $link->prepare("SELECT * FROM `users` WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        if (mysqli_num_rows($result) == 0) {
-            // If the email doesn't exist, insert the user into the database
-            $sql = "INSERT INTO `users` (email, password, username) VALUES ('$email', '$password', '$username')";
-            mysqli_query($link, $sql);
+        if ($result->num_rows == 0) {
+            // If the email doesn't exist, hash the password and insert the user into the database
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $link->prepare("INSERT INTO `users` (email, password, name) VALUES (?, ?, ?)");
+            $stmt->bind_param("sss", $email, $hashed_password, $username);
+            $stmt->execute();
 
             // Log the user in and redirect to the dashboard page
             header("Location: login.php");
             exit();
         } else {
             // If the email already exists, show an error message
-            $error = "email already taken";
+            $error = "Email already taken";
         }
     }
 ?>
@@ -47,6 +51,10 @@
             <div>
                 <label>Email</label>
                 <input type="text" name="email" required>
+            </div>
+            <div>
+                <label>Username</label>
+                <input type="text" name="username" required>
             </div>
             <div>
                 <label>Password</label>
