@@ -21,7 +21,7 @@
                         <a class="t2" href="../menu/index.php"><h3>Menu</h3></a>
                         <a class="t3" href="../over-ons/index.html"><h3>Over Ons</h3></a>
                         <a class="t4" href="../contact/index.html"><h3>Contact</h3></a>
-                        <a class="t5" href="../account/index.html"><h3>Account</h3></a>
+                        <a class="t5" href="../account/login.php"><h3>Account</h3></a>
                     </div>
                 </div>
                 
@@ -39,7 +39,7 @@
                             <a class="t2" href="../menu/index.php"><h3>Menu</h3></a>
                             <a class="t3" href="../over-ons/index.html"><h3>Over Ons</h3></a>
                             <a class="t4" href="../contact/index.html"><h3>Contact</h3></a>
-                            <a class="t5" href="../account/index.html"><h3>Account</h3></a>
+                            <a class="t5" href="../account/login.php"><h3>Account</h3></a>
                         </div>
                     </div>
                 </div>

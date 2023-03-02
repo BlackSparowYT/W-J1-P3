@@ -1,54 +1,54 @@
 <?php
-    // Start a session
-    session_start();
-    
-    require_once("../files/config.php");
+  // Start a session
+  session_start();
+  
+  require_once("../files/config.php");
 
-    // Check if the  has submitted the login form
-    if (isset($_POST['login'])) {
-        // Get the email and password from the form
-        $email = $_POST['email'];
-        $password = $_POST['password'];
+  // Check if the  has submitted the login form
+  if (isset($_POST['login'])) {
+    // Get the email and password from the form
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-        // Query the database to check if the  exists
-        $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-        $result = mysqli_query($link, $sql);
+    // Query the database to check if the  exists
+    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
+    $result = mysqli_query($link, $sql);
 
-        // If the  exists, log them in and redirect to the dashboard page
-        if (mysqli_num_rows($result) == 1) {
-            $_SESSION['email'] = $email;
-            $_SESSION['loggedin'] = 'yes';
-
-
-
-
-            $email = $_SESSION['email'];
-            $sql = "SELECT admin, name FROM users WHERE email = '$email'";
-            $result = mysqli_query($link, $sql);
-
-            // Check if user has admin access
-            if ($row = mysqli_fetch_assoc($result)) {
-                $admin = $row['admin'];
-                if ($admin == 1) {
-                    $_SESSION["admin"] = true;
-                } else {
-                    $_SESSION["admin"] = false;
-                }
-
-                $name = $row['name'];
-                $_SESSION['name'] = $name;
-            }
+    // If the  exists, log them in and redirect to the dashboard page
+    if (mysqli_num_rows($result) == 1) {
+      $_SESSION['email'] = $email;
+      $_SESSION['loggedin'] = 'yes';
 
 
 
-            header("Location: dashboard.php");
-            exit();
 
-        } else {
-            // If the  doesn't exist, show an error message
-            $error = "<h4 style='color: red;'>Invalid name or password</h4>";
-        }
+      $email = $_SESSION['email'];
+      $sql = "SELECT admin, name, id FROM users WHERE email = '$email'";
+      $result = mysqli_query($link, $sql);
+
+      // Check if user has admin access
+      if ($row = mysqli_fetch_assoc($result)) {
+          $admin = $row['admin'];
+          if ($admin == 1) {
+              $_SESSION["admin"] = true;
+          } else {
+              $_SESSION["admin"] = false;
+          }
+
+          $_SESSION['id'] = $row['id'];
+          $_SESSION['name'] = $row['name'];
+      }
+
+
+
+      header("Location: dashboard.php");
+      exit();
+
+    } else {
+        // If the  doesn't exist, show an error message
+        $error = "<h4 style='color: red;'>Invalid name or password</h4>";
     }
+  }
 ?>
 
 <!DOCTYPE html>
