@@ -100,7 +100,7 @@ body {
 /** Navbar **/
 
 nav #navbar-desktop {
-    height: 60px;
+    height: 80px;
     background-color: var(--blue);
     position: fixed;
     top: 0;
@@ -127,7 +127,7 @@ nav #navbar-desktop {
 }
 
 #navbar-desktop .navbar-desktop-items h3 {
-    padding: calc(30px - 26.4px/2 - 5px);
+    padding: calc(40px - 26.4px/2 - 5px);
     margin: 10px;
     background-color: var(--blue-dark);
     border-radius: 10px;
@@ -137,7 +137,7 @@ nav #navbar-desktop {
 
 #navbar-desktop .navbar-desktop-items a:hover h3 {
     background-color: var(--blue-light);
-    padding: calc(30px - 26.4px/2 - 5px);
+    padding: calc(40px - 26.4px/2 - 5px);
     margin: 10px;
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
@@ -150,9 +150,21 @@ nav #navbar-desktop {
     padding-left: 30px;
 }
 
+.navbar-desktop-sitelogo {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
 .navbar-desktop-sitename h2 {
-    padding: calc(30px - 28.8px/2 - 5px) 0;
+    padding: calc(40px - 28.8px/2 - 5px) 0;
     margin: 10px 0;
+}
+
+.navbar-desktop-sitelogo img {
+    padding: 0;
+    height: 80px;
 }
 
 
@@ -906,4 +918,110 @@ canvas {
     .menu-page .flexbox {
         justify-content: space-around;
     }
+}
+
+
+
+
+
+
+/* Account Pages */
+
+/** Pages **/
+
+.login-page,
+.register-page {
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    background-color: var(--gray-dark);
+}
+
+/*** Login | Hero ***/
+.login-page .hero {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    flex-direction: column;
+    z-index: 50;
+    background-color: var(--gray);
+}
+
+.login-page .hero .hero-text {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-page .hero h1 {
+    padding: 0px;
+    color: var(--black);
+    transition: all .2s ease-in;
+    z-index: 50;
+    pointer-events: none;
+}
+
+
+/*** Login | Forum ***/
+.login-page .forum {
+    margin: 20vh 35%;
+    height: 30vh;
+    width: 30%;
+    background-color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-page .forum {
+    
+}
+
+
+
+/*** Register | Hero ***/
+.register-page .hero {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    flex-direction: column;
+    z-index: 50;
+    background-color: var(--gray);
+}
+
+.register-page .hero .hero-text {
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.register-page .hero h1 {
+    padding: 0px;
+    color: var(--black);
+    transition: all .2s ease-in;
+    z-index: 50;
+    pointer-events: none;
+}
+
+
+/*** Register | Forum ***/
+.register-page .forum {
+    margin: 20vh 35%;
+    height: 30vh;
+    width: 30%;
+    background-color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

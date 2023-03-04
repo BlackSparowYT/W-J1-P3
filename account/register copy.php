@@ -5,57 +5,34 @@
     // Connect to the database
     require_once("../files/config.php");
 
-    // Check if the user has submitted the form
-    if (isset($_POST['change_email'])) {
-        // Get the email and password from the form
-        $new_email = $_POST['new_email'];
-        $confirm_email = $_POST['confirm_email'];
+    // Check if the user has submitted the registration form
+    if (isset($_POST['register'])) {
+        // Get the email, username, and password from the form
+        $email = $_POST['email'];
         $password = $_POST['password'];
+        $username = $_POST['username'];
 
-        // Validate the inputs
-        $errors = array();
-        if ($new_email === "") {
-            $errors[] = "Please enter your new email.";
-        }
-        if ($confirm_email === "") {
-            $errors[] = "Please confirm your new email.";
-        }
-        if ($new_email !== $confirm_email) {
-            $errors[] = "The new email and confirmation do not match.";
-        }
-        if ($password === "") {
-            $errors[] = "Please enter your password.";
-        }
+        $reset_token = bin2hex(random_bytes(16));
 
-        // Check if the password is correct
-        $stmt = $link->prepare("SELECT * FROM `users` WHERE name = ?");
-        $stmt->bind_param("s", $_SESSION['name']);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $user = $result->fetch_assoc();
-        if (!password_verify($password, $user['password'])) {
-            $errors[] = "Invalid password.";
-        }
-
-        // Check if the new email already exists
+        // Check if the email already exists
         $stmt = $link->prepare("SELECT * FROM `users` WHERE email = ?");
-        $stmt->bind_param("s", $new_email);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
-        if ($result->num_rows > 0) {
-            $errors[] = "The new email is already taken.";
-        }
 
-        if (count($errors) == 0) {
-            // If there are no errors, update the email in the database
-            $stmt = $link->prepare("UPDATE `users` SET email = ? WHERE name = ?");
-            $stmt->bind_param("ss", $new_email, $_SESSION['name']);
+        if ($result->num_rows == 0) {
+            // If the email doesn't exist, hash the password and insert the user into the database
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $link->prepare("INSERT INTO `users` (email, password, name, reset_token) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $email, $hashed_password, $username, $reset_token);
             $stmt->execute();
 
-            // Set a success message and redirect to the dashboard
-            $_SESSION['email'] = $new_email;
-            header("Location: dashboard.php");
+            // Log the user in and redirect to the dashboard page
+            header("Location: login.php");
             exit();
+        } else {
+            // If the email already exists, show an error message
+            $error = "Email already taken";
         }
     }
 ?>
@@ -70,7 +47,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
 
-        <title>Verander Email || Het Oventje</title>
+        <title>Registreer || Het Oventje</title>
         <link rel="stylesheet" href="../styles.css">
     </head>
     
@@ -115,27 +92,35 @@
                 </script>
             </nav>
         </header>
-        
-        <h1>Change Email</h1>
-        <?php if (isset($error)) : ?>
-            <div><?php echo $error; ?></div>
-        <?php endif; ?>
-        <form method="post">
-            <div>
-                <label>New Email</label>
-                <input type="email" name="new_email" required>
+
+        <main class="register-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Register</h1>
+                </div>
             </div>
-            <div>
-                <label>Confirm New Email</label>
-                <input type="email" name="confirm_email" required>
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" required>
-            </div>
-            <div>
-                <button type="submit" name="change_email">Change Email</button>
-            </div>
-        </form>
+            <div class="forum">
+                <div>
+                    <label>Email</label>
+                    <input type="text" name="email" required>
+                </div>
+                <div>
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <?php if (isset($error)) : ?>
+                    <div><?php echo $error; ?></div>
+                <?php endif; ?>
+                <div>
+                    <button type="submit" name="register">Register</button>
+                </div>
+                <p>Already have an account? <a href="login.php">Login</a></p>
+            </form>
+        </main>
     </body>
+
 </html>

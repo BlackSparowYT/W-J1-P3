@@ -7,14 +7,17 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
+
+        <title>Menu || Het Oventje</title>
+        <link rel="stylesheet" href="../styles.css">
     </head>
     
     <body>
         <header>
-        <nav>
+            <nav>
                 <div id="navbar-desktop">
-                    <div class="navbar-desktop-sitename">
-                        <h2 class="t1">Mikado's</h2>
+                    <div class="navbar-desktop-sitelogo">
+                        <img src="../files/images/logo-white-side.png">
                     </div>
                     <div class="navbar-desktop-items">
                         <a class="t1" href="../index.html"><h3>Home</h3></a>
@@ -26,8 +29,8 @@
                 </div>
                 
                 <div id="navbar-mobile">
-                    <div class="navbar-mobile-sitename">
-                        <h2 class="t1">Mikado's</h2>
+                    <div class="navbar-mobile-sitelogo">
+                        <img src="../files/images/logo-white-side.png">
                     </div>
                     <div class="navbar-mobile-items">
                         <a onclick="openNav()"><h3>&#9776;</h3></a>
@@ -50,9 +53,6 @@
                 </script>
             </nav>
         </header>
-
-        <title>Menu || Mikado's</title>
-        <link rel="stylesheet" href="../styles.css">
 
         <main class="menu-page">
 
@@ -122,7 +122,7 @@
             </div>
                 <?php
 
-                    ini_set('display_errors', 0);
+                    //ini_set('display_errors', 0);
 
                     require_once("../files/config.php");
 
@@ -168,13 +168,6 @@
 
                     } else if ($cat == 'dranken') {
 
-                        // See if a sub categorie is selected and prepair the correct statement
-                        if ($sub_cat != NULL) {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken' AND sub_categorie LIKE '$sub_cat'";
-                        } else {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        }
-
                         echo "</div>";
                         echo "<h2>Dranken</h2>";
                         echo "<hr>";
@@ -209,8 +202,7 @@
                         echo "<h2>Bijgerecht</h2>";
                         echo "<hr>";
                         echo "<div class='flexbox'>";
-    
-                        $query = "SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht'";
+
                         if ($is_query_run = mysqli_query($link, $query)) {
                             while ($query_executed = mysqli_fetch_assoc ($is_query_run))
                             {
@@ -267,13 +259,6 @@
                             }
                         } else { echo "Error in execution!"; }
 
-                        // See if a sub categorie is selected and prepair the correct statement
-                        if ($sub_cat != NULL) {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken' AND sub_categorie LIKE '$sub_cat'";
-                        } else {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        }
-
                         echo "</div>";
                         if ($sub_cat == "vegie" ) {
                             echo "<h2>Dranken (niet gefilterd op vegetarisch)</h2>";
@@ -312,8 +297,7 @@
                         echo "<h2>Bijgerecht</h2>";
                         echo "<hr>";
                         echo "<div class='flexbox'>";
-    
-                        $query = "SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht'";
+
                         if ($is_query_run = mysqli_query($link, $query)) {
                             while ($query_executed = mysqli_fetch_assoc ($is_query_run))
                             {
