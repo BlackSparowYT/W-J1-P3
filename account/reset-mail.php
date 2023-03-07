@@ -115,27 +115,37 @@
                 </script>
             </nav>
         </header>
-        
-        <h1>Change Email</h1>
-        <?php if (isset($error)) : ?>
-            <div><?php echo $error; ?></div>
-        <?php endif; ?>
-        <form method="post">
-            <div>
-                <label>New Email</label>
-                <input type="email" name="new_email" required>
+
+        <main class="register-page account-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Verander Email</h1>
+                </div>
             </div>
-            <div>
-                <label>Confirm New Email</label>
-                <input type="email" name="confirm_email" required>
+            <div class="forum">
+                <form method="post">
+                    <div>
+                        <h3>Nieuwe Email</h3>
+                        <input type="email" name="new_email" required>
+                    </div>
+                    <div>
+                        <h3>Bevestig Nieuwe Email</h3>
+                        <input type="email" name="confirm_email" required>
+                    </div>
+                    <div>
+                        <h3>Wachtwoord</h3>
+                        <input type="password" name="password" required>
+                    </div>
+                    <?php if (isset($error)) : ?>
+                        <div><p class="errors" style="color: darkred;"><?php echo $error; ?></p></div>
+                    <?php endif; ?>
+                    <div>
+                        <button type="submit" name="change_email">Verander Email</button>
+                    </div>
+                    <p><a href="dashboard.php">&#x2190; Terug</a></p>
+                </form>
             </div>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" required>
-            </div>
-            <div>
-                <button type="submit" name="change_email">Change Email</button>
-            </div>
-        </form>
+        </main>
+
     </body>
 </html>

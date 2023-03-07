@@ -52,29 +52,91 @@
 
 <!DOCTYPE html>
 <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
+
+        <title>Registreer || Het Oventje</title>
+        <link rel="stylesheet" href="../styles.css">
+    </head>
+
     <body>
-    <h1>Register</h1>
-    <?php if (isset($error)) : ?>
-        <div><?php echo $error; ?></div>
-    <?php endif; ?>
-    <form method="post">
-        <div>
-            <label>Email</label>
-            <input type="text" name="email" required>
-        </div>
-        <div>
-            <label>Username</label>
-            <input type="text" name="username" required>
-        </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit" name="register">Register</button>
-        </div>
-        <p>Already have an account? <a href="login.php">Login</a></p>
-    </form>
+        <header>
+            <nav>
+                <div id="navbar-desktop">
+                    <div class="navbar-desktop-sitelogo">
+                        <img src="../files/images/logo-white-side.png">
+                    </div>
+                    <div class="navbar-desktop-items">
+                        <a class="t1" href="../index.html"><h3>Home</h3></a>
+                        <a class="t2" href="../menu/index.php"><h3>Menu</h3></a>
+                        <a class="t3" href="../over-ons/index.html"><h3>Over Ons</h3></a>
+                        <a class="t4" href="../contact/index.html"><h3>Contact</h3></a>
+                        <a class="t5" href="../account/login.php"><h3>Account</h3></a>
+                    </div>
+                </div>
+                
+                <div id="navbar-mobile">
+                    <div class="navbar-mobile-sitelogo">
+                        <img src="../files/images/logo-white-side.png">
+                    </div>
+                    <div class="navbar-mobile-items">
+                        <a onclick="openNav()"><h3>&#9776;</h3></a>
+                    </div>
+                    <div id="navbar-mobile-fullscreen" class="nav-overlay">
+                        <a href="javascript:void(0)" class="closebtn t1" onclick="closeNav()">&times;</a>
+                        <div class="nav-overlay-content">
+                            <a class="t1" href="../index.html"><h3>Home</h3></a>
+                            <a class="t2" href="../menu/index.php"><h3>Menu</h3></a>
+                            <a class="t3" href="../over-ons/index.html"><h3>Over Ons</h3></a>
+                            <a class="t4" href="../contact/index.html"><h3>Contact</h3></a>
+                            <a class="t5" href="../account/login.php"><h3>Account</h3></a>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function openNav() { document.getElementById("navbar-mobile-fullscreen").style.height = "100%"; }
+                    function closeNav() { document.getElementById("navbar-mobile-fullscreen").style.height = "0%"; }
+                </script>
+            </nav>
+        </header>
+
+        <main class="register-page account-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Registreer</h1>
+                </div>
+            </div>
+            <div class="forum">
+                <form method="post">
+                <div>
+                    <h3>Email</h3>
+                    <input type="text" name="email" required>
+                </div>
+                <div>
+                    <h3>Username</h3>
+                    <input type="text" name="username" required>
+                </div>
+                <div>
+                    <h3>Password</h3>
+                    <input type="password" name="password" required>
+                </div>
+                <?php if (isset($error)) : ?>
+                    <div><p class="errors" style="color: darkred;"><?php echo $error; ?></p></div>
+                <?php endif; ?>
+                <div>
+                    <button type="submit" name="register">Register</button>
+                </div>
+                <p>Heb je al een account? <br> <a href="login.php">Login</a></p>
+                </form>
+            </div>
+        </main>
     </body>
 
 </html>

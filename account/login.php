@@ -4,6 +4,11 @@
 
   require_once("../files/config.php");
 
+  if (isset($_SESSION['loggedin'])) {
+    header("Location: dashboard.php");
+    exit();
+  }
+
   // Check if the user has submitted the login form
   if (isset($_POST['login'])) {
     // Get the email and password from the form
@@ -49,11 +54,11 @@
         exit();
       } else {
         // If the password doesn't match, show an error message
-        $error = "<h4 style='color: red;'>Invalid password" . $hashed_password . "</h4>";
+        $error = "Email of Wachtwoord is incorrect.";
       }
     } else {
       // If the password doesn't match, show an error message
-      $error = "<h4 style='color: red;'>Invalid email</h4>";
+      $error = "Email of Wachtwoord is incorrect.";
     }
   }
 ?>
@@ -61,7 +66,7 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -115,7 +120,7 @@
             </nav>
         </header>
 
-        <main class="login-page">
+        <main class="login-page account-page">
             <div class="hero">
                 <div class="hero-text">
                     <h1 class="t1">Login</h1>
@@ -124,20 +129,20 @@
             <div class="forum">
                 <form method="post">
                     <div>
-                        <label>Email</label>
+                        <h3>Email</h3>
                         <input type="email" name="email" required>
                     </div>
                     <div>
-                        <label>Wachtwoord</label>
+                        <h3>Wachtwoord</h3>
                         <input type="password" name="password" required>
                     </div>
                     <?php if (isset($error)) : ?>
-                        <div><?php echo $error; ?></div>
+                        <div><p class="errors" style="color: darkred;"><?php echo $error; ?></p></div>
                     <?php endif; ?>
                     <div>
                         <button type="submit" name="login">Login</button>
                     </div>
-                    <p>Heb je nog geen account? <a href="register.php">Registreer</a></p>
+                    <p>Heb je nog geen account? <br> <a href="register.php">Registreer</a></p>
                 </form>
             </div>
         </main>

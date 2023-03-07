@@ -102,27 +102,34 @@
             </nav>
         </header>
 
-        <h1>Reset Password</h1>
-        <?php if (isset($error)) : ?>
-            <div><?php echo $error; ?></div>
-        <?php endif; ?>
-        <form method="post">
-            <div>
-                <label>Old Password</label>
-                <input type="password" name="old_password" required>
+        <main class="register-page account-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Verander Wachtwoord</h1>
+                </div>
             </div>
-            <div>
-                <label>New Password</label>
-                <input type="password" name="new_password1" required>
+            <div class="forum">
+                <form method="post">
+                    <div>
+                        <h3>Huidige Wachtwoord</h3>
+                        <input type="password" name="old_password" required>
+                    </div>
+                    <div>
+                        <h3>Nieuwe Wachtwoord</h3>
+                        <input type="password" name="new_password1" required>
+                    </div>
+                    <div>
+                        <h3>Bevestig Nieuwe Wachtwoord</h3>
+                        <input type="password" name="new_password2" required>
+                    </div>
+                    <div>
+                        <button type="submit" name="reset_password">Verander Wachtwoord</button>
+                    </div>
+                    <p><a href="dashboard.php">&#x2190; Terug</a></p>
+                    <p>Bent u uw wachtwoord vergeten? <br> <a href="forgot-pass.php">Herstel wachtwoord</a></p>
+                </form>
             </div>
-            <div>
-                <label>Confirm New Password</label>
-                <input type="password" name="new_password2" required>
-            </div>
-            <div>
-                <button type="submit" name="reset_password">Reset Password</button>
-            </div>
-        </form>
+        </main>
     </body>
 
 </html>

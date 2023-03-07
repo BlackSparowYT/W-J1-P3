@@ -117,26 +117,35 @@
             </nav>
         </header>
 
-        <h1>Change Username</h1>
-        <?php if (isset($error)) : ?>
-            <div><?php echo $error; ?></div>
-        <?php endif; ?>
-        <form method="post">
-            <div>
-                <label>New Username</label>
-                <input type="text" name="new_username" required>
+        <main class="register-page account-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Verander Naam</h1>
+                </div>
             </div>
-            <div>
-                <label>Confirm New Username</label>
-                <input type="text" name="confirm_username" required>
+            <div class="forum">
+                <form method="post">
+                    <div>
+                        <h3>Nieuwe Naam</h3>
+                        <input type="text" name="new_username" required>
+                    </div>
+                    <div>
+                        <h3>Bevestig Nieuwe Naam</h3>
+                        <input type="text" name="confirm_username" required>
+                    </div>
+                    <div>
+                        <h3>Wachtwoord</h3>
+                        <input type="password" name="password" required>
+                    </div>
+                    <?php if (isset($error)) : ?>
+                        <div><?php echo $error; ?></div>
+                    <?php endif; ?>
+                    <div>
+                        <button type="submit" name="change_username">Verander Naam</button>
+                    </div>
+                    <p><a href="dashboard.php">&#x2190; Terug</a></p>
+                </form>
             </div>
-            <div>
-                <label>Password</label>
-                <input type="password" name="password" required>
-            </div>
-            <div>
-                <button type="submit" name="change_username">Change Username</button>
-            </div>
-        </form>
+        </main>
     </body>
 </html>

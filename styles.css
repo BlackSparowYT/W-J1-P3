@@ -930,14 +930,19 @@ canvas {
 /** Pages **/
 
 .login-page,
-.register-page {
+.register-page,
+.dash-page {
     height: calc(100vh - 80px);
     margin-top: 80px;
     background-color: var(--gray-dark);
 }
 
-/*** Login | Hero ***/
-.login-page .hero {
+.forum .errors {
+    max-width: 162px;
+}
+
+/*** Account Pages | Hero ***/
+.account-page .hero {
     height: 20vh;
     width: auto;
     display: flex;
@@ -948,7 +953,7 @@ canvas {
     background-color: var(--gray);
 }
 
-.login-page .hero .hero-text {
+.account-page .hero .hero-text {
     height: 30vh;
     width: 100%;
     display: flex;
@@ -957,7 +962,7 @@ canvas {
     flex-direction: column;
 }
 
-.login-page .hero h1 {
+.account-page .hero h1 {
     padding: 0px;
     color: var(--black);
     transition: all .2s ease-in;
@@ -966,62 +971,192 @@ canvas {
 }
 
 
-/*** Login | Forum ***/
-.login-page .forum {
-    margin: 20vh 35%;
-    height: 30vh;
+/*** Account Pages | Forum ***/
+.account-page .forum {
+    margin: 10vh 35%;
+    min-width: 230px;
+    min-height: 380px;
     width: 30%;
+    height: 50vh;
     background-color: var(--gray);
+    color: var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    border-radius: 20px;
 }
 
-.login-page .forum {
-    
+.account-page .forum h3 {
+    margin-top: 20px;
+    color: var(--black);
+}
+
+.account-page .forum input {
+    margin: 5px 0;
+    background-color: var(--transparent);
+    border: none;
+    border-bottom: 2px var(--black) solid;
+    transition: all .3s;
+}
+
+.account-page .forum input:hover,
+.account-page .forum input:focus,
+.account-page .forum input:focus-visible {
+    border-bottom: 2px var(--white) solid;
+    outline: 0;
+    transition: all .3s;
+}
+
+.account-page .forum input:-webkit-autofill { 
+    -webkit-background-clip: text;
+}
+
+
+.account-page .forum button {
+    margin: 15px 0;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 10px;
+    transition: all .3s;
+    border: none;
+} 
+.account-page .forum button:hover {
+    background-color: var(--blue-dark);
+}
+
+.account-page .forum p {
+    margin: 5px 0;
+    color: var(--black);
+} 
+.account-page .forum a {
+    margin: 0 0 15px 0;
+    color: var(--blue);
 }
 
 
 
-/*** Register | Hero ***/
-.register-page .hero {
-    height: 20vh;
-    width: auto;
-    display: flex;
-    align-items: center;    
-    justify-content: center;
-    flex-direction: column;
-    z-index: 50;
+/*** Dash Page | Content ***/
+.account-page .dash-content {
+    margin: 2.5vh 5%;
+    width: 90%;
+    height: calc(75vh - 80px);
     background-color: var(--gray);
+    color: var(--black);
+    border-radius: 20px;
 }
 
-.register-page .hero .hero-text {
-    height: 30vh;
+.account-page .dash-content .btn-content {
     width: 100%;
+    height: 50%;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: center;
+}
+.account-page .dash-content .btn-content .user-btns {
+    width: fit-content;
+    display: flex;
     flex-direction: column;
+    margin-left: 50px;
 }
 
-.register-page .hero h1 {
-    padding: 0px;
+.account-page .dash-content .user-btns h3 {
+    margin-bottom: 10px;
     color: var(--black);
-    transition: all .2s ease-in;
-    z-index: 50;
-    pointer-events: none;
+}
+
+.account-page .dash-content .user-btns a {
+    padding: 10px;
+    color: var(--black);
+    transition: all .3s;
+}
+.account-page .dash-content .user-btns a:hover {
+    color: var(--white);
+    transition: all .3s;
 }
 
 
-/*** Register | Forum ***/
-.register-page .forum {
-    margin: 20vh 35%;
-    height: 30vh;
-    width: 30%;
-    background-color: var(--gray);
+
+.account-page .dash-content 
+.user-btns .first-btn {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.account-page .dash-content 
+.user-btns .last-btn {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.account-page .dash-content 
+.user-btns a:nth-child(even) {
+    background-color: #A99C95;
+}.account-page .dash-content 
+.user-btns a:nth-child(odd) {
+    background-color: #B5A9A3;
+}
+
+
+
+.account-page .dash-content .table-content {
+    width: 100%;
+    height: 50%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.account-page .dash-content .table-content h3 {
+    color: var(--black);
+}
+
+.account-page .dash-content .table-content .order,
+.account-page .dash-content .table-content .reseveringen {
+    max-width: 50%;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow-x: scroll;
+    text-align: left;
+}
+
+
+.account-page .dash-content .table-content h3 {
+    position: fixed;
+}
+.account-page .dash-content .table-content table {
+    margin-top: 20px;
+}
+
+.account-page .dash-content .table-content p {
+    color: var(--black);
+}
+
+.account-page .dash-content .table-content th {
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+}
+.account-page .dash-content .table-content td {
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+
+.account-page .dash-content 
+.table-content tr:nth-child(even) {
+    background-color: #A99C95;
+    border: 5px;
+}
+.account-page .dash-content 
+.table-content tr:nth-child(odd) {
+    background-color: #B5A9A3;
+    border: 5px;
 }

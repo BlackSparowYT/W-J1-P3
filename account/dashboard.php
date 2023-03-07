@@ -15,12 +15,20 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <title>Dashboard</title>
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
+
+        <title>Dashboard || Het Oventje</title>
+        <link rel="stylesheet" href="../styles.css">
     </head>
 
     <body>
-    <header>
+        <header>
             <nav>
                 <div id="navbar-desktop">
                     <div class="navbar-desktop-sitelogo">
@@ -61,16 +69,163 @@
             </nav>
         </header>
 
-        
-        <h1>Welkom, <?php echo $username; ?>!</h1>
-        <p>You are now logged in. <a href="logout.php">Logout</a></p>
-        <p>Want to change your username? <a href="reset-name.php">Change username</a></p>
-        <p>Want to change your email? <a href="reset-mail.php">Change Email</a></p>
-        <p>Want to change your password? <a href="reset-pass.php">Change Password</a></p>
-        <?php if($_SESSION['admin'] == true) : ?>
-            <p>Welcome to the admin panel</p>
-        <?php endif; ?>
+        <main class="dash-page account-page">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1 class="t1">Welkom, <?php echo $username; ?>!</h1>
+                </div>
+            </div>
+            <div class="dash-content">
+                <div class="table-content">
+                    <?php if($_SESSION['admin'] != true) : ?>
+                        <div class="user-table order">
+                            <h3>Je recenten orders:</h3>
+                            <?php
+                                require_once('../files/config.php');
+                                $user_id = $_SESSION['id'];
+                                $query = "SELECT * FROM `orders` WHERE user_id LIKE '$user_id' LIMIT 5";
+            
 
+                                echo "<table class='order-table'>";
+                                echo '<tr>';
+                                echo '<th><p>Order ID</p></th>';
+                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Order</p></th>';
+                                echo '</tr>';
+
+                                if ($is_query_run = mysqli_query($link, $query)) {
+                                    while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                                    {
+                                        echo '<tr>';
+                                        echo '<td><p>'.$query_executed['id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['date'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['contains'].'</p></td>';
+                                        echo '</tr>';
+                                    }
+                                } else { echo "Error in execution!"; }
+
+                                echo "</table>";
+                            ?>
+                        </div>
+                        <div class="user-table reseveringen">
+                            <h3>Je recenten reseveringen:</h3>
+                            <?php
+                                require_once('../files/config.php');
+                                $user_id = $_SESSION['id'];
+                                $query = "SELECT * FROM `reseveringen` WHERE user_id LIKE '$user_id' LIMIT 5";
+
+                                echo "<table class='order-table'>";
+                                echo '<tr>';
+                                echo '<th><p>Order ID</p></th>';
+                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Order</p></th>';
+                                echo '</tr>';
+
+                                if ($is_query_run = mysqli_query($link, $query)) {
+                                    while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                                    {
+                                        echo '<tr>';
+                                        echo '<td><p>'.$query_executed['id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['date'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['contains'].'</p></td>';
+                                        echo '</tr>';
+                                    }
+                                } else { echo "Error in execution!"; }
+
+                                echo "</table>";
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                    <?php if($_SESSION['admin'] == true) : ?>
+                        <div class="admin-table order">
+                            <h3>Recenten orders:</h3>
+                            <?php
+                                require_once('../files/config.php');
+                                $query = "SELECT * FROM `orders` LIMIT 5";
+            
+
+                                echo "<table class='order-table'>";
+                                echo '<tr>';
+                                echo '<th><p>Order ID</p></th>';
+                                echo '<th><p>User ID</p></th>';
+                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Order</p></th>';
+                                echo '</tr>';
+
+                                if ($is_query_run = mysqli_query($link, $query)) {
+                                    while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                                    {
+                                        echo '<tr>';
+                                        echo '<td><p>'.$query_executed['id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['user_id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['date'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['contains'].'</p></td>';
+                                        echo '</tr>';
+                                    }
+                                } else { echo "Error in execution!"; }
+
+                                echo "</table>";
+                            ?>
+                            
+                        </div>
+                        <div class="admin-table reseveringen">
+                            <h3>Recenten reseveringen:</h3>
+                            <?php
+                                require_once('../files/config.php');
+                                $query = "SELECT * FROM `reseveringen` LIMIT 5";
+            
+
+                                echo "<table class='order-table'>";
+                                echo '<tr>';
+                                echo '<th><p>Order ID</p></th>';
+                                echo '<th><p>User ID</p></th>';
+                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Order</p></th>';
+                                echo '</tr>';
+
+                                if ($is_query_run = mysqli_query($link, $query)) {
+                                    while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                                    {
+                                        echo '<tr>';
+                                        echo '<td><p>'.$query_executed['id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['user_id'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['date'].'</p></td>';
+                                        echo '<td><p>'.$query_executed['contains'].'</p></td>';
+                                        echo '</tr>';
+                                    }
+                                } else { echo "Error in execution!"; }
+
+                                echo "</table>";
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="btn-content">
+                    <div class="user-btns">
+                        <h3>Pas je account aan:</h3> 
+                        <a href="logout.php" class="first-btn">Log uit</a>
+                        <a href="reset-name.php">Verander Naam</a>
+                        <a href="reset-mail.php">Verander Email</a>
+                        <a href="reset-pass.php" class="last-btn">Verander Wachtwoord</a>
+                    </div>
+                    <?php if($_SESSION['admin'] == true) : ?>
+                        <div class="user-btns">
+                            <h3>Pas het menu aan:</h3> 
+                            <a href="logout.php" class="first-btn">Bekijk items</a>
+                            <a href="reset-name.php">Pas item aan</a>
+                            <a href="reset-mail.php">Voeg item toe</a>
+                            <a href="reset-pass.php" class="last-btn">Verwijder item</a>
+                        </div>
+                        <div class="user-btns">
+                            <h3>Meer informatie:</h3> 
+                            <a href="logout.php" class="first-btn">Bekijk Gebruikers</a>
+                            <a href="reset-name.php">Bekijk orders</a>
+                            <a href="reset-mail.php" class="last-btn">Bekijk reseveringen</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </main>
     </body>
 
 </html>
