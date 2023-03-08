@@ -72,11 +72,13 @@
                 <?php
                     require_once("../files/config.php");
 
-                    $urlid = $_GET["id"];
+                    $item_id = $_GET["id"];
 
-                    $query = "SELECT * FROM `menu` WHERE id = $urlid";
-                    if ($is_run = mysqli_query($link, $query)) {
-                        while ($result = mysqli_fetch_assoc ($is_run))
+                    $stmt = $link->prepare("SELECT * FROM `menu` WHERE id = ?");
+                    $stmt->bind_param("i", $item_id);
+                    if ($stmt->execute()) {
+                        $is_run = $stmt->get_result();
+                        while ($result = mysqli_fetch_assoc($is_run))
                         {
                             echo "<img src='".$result['image']."' />";
                             echo "<div class='product-flex-box'>";

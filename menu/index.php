@@ -98,9 +98,10 @@
 
                         // See if a sub categorie is selected and prepair the correct statement
                         if ($sub_cat != NULL) {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'pizza' AND sub_categorie LIKE '$sub_cat'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'pizza' AND sub_categorie LIKE ?");
+                            $stmt->bind_param("s", $sub_cat);
                         } else {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'pizza'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'pizza'");
                         }
                         
                         echo "<h2>Pizza's</h2>";
@@ -108,8 +109,9 @@
                         echo "<div class='flexbox'>";
     
     
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img src='".$result['image']."' />";
@@ -136,9 +138,10 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
     
-                        $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'dranken'");
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img class='dranken-img' src='".$result['image']."' />";
@@ -156,9 +159,10 @@
 
                         // See if a sub categorie is selected and prepair the correct statement
                         if ($sub_cat != NULL) {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht' AND sub_categorie LIKE '$sub_cat'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht' AND sub_categorie LIKE ?");
+                            $stmt->bind_param("s", $sub_cat);
                         } else {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht' ");
                         }
 
                         echo "</div>";
@@ -166,8 +170,9 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
 
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img src='".$result['image']."' />";
@@ -191,9 +196,11 @@
 
                         // See if a sub categorie is selected and prepair the correct statement
                         if ($sub_cat != NULL) {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'pizza' AND sub_categorie LIKE '$sub_cat'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'pizza' AND sub_categorie LIKE ?");
+                            $stmt->bind_param("s", $sub_cat);
+                            
                         } else {
-                            $query = "SELECT * FROM `menu` WHERE categorie LIKE 'pizza'";
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'pizza'");
                         }
                         
                         echo "<h2>Pizza's</h2>";
@@ -201,8 +208,9 @@
                         echo "<div class='flexbox'>";
     
     
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img src='".$result['image']."' />";
@@ -232,9 +240,10 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
     
-                        $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'dranken'");
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img class='dranken-img' src='".$result['image']."' />";
@@ -261,8 +270,9 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
 
-                        if ($is_run = mysqli_query($link, $query)) {
-                            while ($result = mysqli_fetch_assoc ($is_run))
+                        if ($stmt->execute()) {
+                            $is_run = $stmt->get_result();
+                            while ($result = mysqli_fetch_assoc($is_run))
                             {
                                 echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
                                 echo "<img src='".$result['image']."' />";

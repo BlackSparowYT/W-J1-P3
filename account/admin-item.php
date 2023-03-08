@@ -86,8 +86,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Sono:wght@300;600;800&display=swap" rel="stylesheet">
-
-        <title>Item <?php echo $item_id." - ".$action; ?> || Het Oventje</title>
+        
+        <title>Item <?php echo htmlspecialchars($item_id." - ".$action); ?> || Het Oventje</title>
         <link rel="stylesheet" href="../styles.css">
     </head>
 
@@ -166,7 +166,7 @@
             <div class="hero">
                 <div class="hero-text">
                     <?php if($action != "add") : ?>
-                        <h1 class="t1">Item: <?php echo $item_id." - ".$action; ?></h1>
+                        <h1 class="t1">Item: <?php echo htmlspecialchars($item_id." - ".$action); ?></h1>
                     <?php endif; ?>
                     <?php if($action == "add") : ?>
                         <h1 class="t1">Add Item</h1>

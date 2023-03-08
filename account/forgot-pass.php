@@ -36,7 +36,8 @@
         if ($result->num_rows === 0) {
             $errors[] = "Invalid reset token.";
         } else {
-            $token_valid = true;
+            $token_valid = '<p>Your token is invalid or has expired</p>
+            <p><a href="ask-forgot-password.php">Request a new password reset link</a></p>';
         }
 
         if (count($errors) == 0) {
@@ -68,12 +69,6 @@
                 <?php foreach ($errors as $error) : ?>
                     <p><?php echo $error; ?></p>
                 <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-        <?php if ($token_valid != true) : ?>
-            <div>
-                <p>Your token is invalid or has expired</p>
-                <p><a href="ask-forgot-password.php">Request a new password reset link</a></p>
             </div>
         <?php endif; ?>
         <form method="post">
