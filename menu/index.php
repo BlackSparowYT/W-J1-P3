@@ -108,22 +108,22 @@
                         echo "<div class='flexbox'>";
     
     
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img src='".$query_executed['image']."' />";
-                                if ($query_executed['sub_categorie'] == "vegie" ) {
-                                    echo "<img class='sub_categorie' src='../files/images/menu/vegie.png' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img src='".$result['image']."' />";
+                                if ($result['sub_categorie'] == "veggi" ) {
+                                    echo "<img class='sub_categorie' src='../files/images/menu/veggi-marker.png' />";
                                     echo "<div class='product-flex-box' style='margin-top: -65px;'>";
                                 }
                                 else {
                                     echo "<div class='product-flex-box'>";
                                 }
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }
@@ -137,16 +137,16 @@
                         echo "<div class='flexbox'>";
     
                         $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img class='dranken-img' src='".$query_executed['image']."' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img class='dranken-img' src='".$result['image']."' />";
                                 echo "<div class='product-flex-box'>";
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }
@@ -166,22 +166,22 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
 
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img src='".$query_executed['image']."' />";
-                                if ($query_executed['sub_categorie'] == "vegie" ) {
-                                    echo "<img class='sub_categorie' src='../files/images/menu/vegie.png' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img src='".$result['image']."' />";
+                                if ($result['sub_categorie'] == "veggi" ) {
+                                    echo "<img class='sub_categorie' src='../files/images/menu/veggi-marker.png' />";
                                     echo "<div class='product-flex-box' style='margin-top: -65px;'>";
                                 }
                                 else {
                                     echo "<div class='product-flex-box'>";
                                 }
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }
@@ -201,29 +201,29 @@
                         echo "<div class='flexbox'>";
     
     
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img src='".$query_executed['image']."' />";
-                                if ($query_executed['sub_categorie'] == "vegie" ) {
-                                    echo "<img class='sub_categorie' src='../files/images/menu/vegie.png' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img src='".$result['image']."' />";
+                                if ($result['sub_categorie'] == "veggi" ) {
+                                    echo "<img class='sub_categorie' src='../files/images/menu/veggi-marker.png' />";
                                     echo "<div class='product-flex-box' style='margin-top: -65px;'>";
                                 }
                                 else {
                                     echo "<div class='product-flex-box'>";
                                 }
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }
                         } else { echo "Error in execution!"; }
 
                         echo "</div>";
-                        if ($sub_cat == "vegie" ) {
+                        if ($sub_cat == "veggi" ) {
                             echo "<h2>Dranken (niet gefilterd op vegetarisch)</h2>";
                         }
                         else {
@@ -233,16 +233,16 @@
                         echo "<div class='flexbox'>";
     
                         $query = "SELECT * FROM `menu` WHERE categorie LIKE 'dranken'";
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img class='dranken-img' src='".$query_executed['image']."' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img class='dranken-img' src='".$result['image']."' />";
                                 echo "<div class='product-flex-box'>";
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }
@@ -261,22 +261,22 @@
                         echo "<hr>";
                         echo "<div class='flexbox'>";
 
-                        if ($is_query_run = mysqli_query($link, $query)) {
-                            while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+                        if ($is_run = mysqli_query($link, $query)) {
+                            while ($result = mysqli_fetch_assoc ($is_run))
                             {
-                                echo "<a class='block' href='./product.php?id=".$query_executed['id']."'/>";
-                                echo "<img src='".$query_executed['image']."' />";
-                                if ($query_executed['sub_categorie'] == "vegie" ) {
-                                    echo "<img class='sub_categorie' src='../files/images/menu/vegie.png' />";
+                                echo "<a class='block' href='./product.php?id=".$result['id']."'/>";
+                                echo "<img src='".$result['image']."' />";
+                                if ($result['sub_categorie'] == "veggi" ) {
+                                    echo "<img class='sub_categorie' src='../files/images/menu/veggi-marker.png' />";
                                     echo "<div class='product-flex-box' style='margin-top: -65px;'>";
                                 }
                                 else {
                                     echo "<div class='product-flex-box'>";
                                 }
-                                echo "<h2>".$query_executed['name']."</h2>";
-                                echo "<p>".$query_executed['small-desc']."</p>";
+                                echo "<h2>".$result['name']."</h2>";
+                                echo "<p>".$result['small_desc']."</p>";
                                 echo "<hr>";
-                                echo "<p class='prijs-text'>".$query_executed['prijs']."</p>";
+                                echo "<p class='prijs-text'>".$result['prijs']."</p>";
                                 echo "</div>";
                                 echo "</a>";
                             }

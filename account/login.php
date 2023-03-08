@@ -30,7 +30,7 @@
       if (password_verify($password, $hashed_password)) {
 
         $_SESSION['email'] = $email;
-        $_SESSION['loggedin'] = 'yes';
+        $_SESSION['loggedin'] = true;
 
         $stmt = $link->prepare("SELECT admin, name, id FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
@@ -41,9 +41,9 @@
         if ($row = mysqli_fetch_assoc($result)) {
           $admin = $row['admin'];
           if ($admin == 1) {
-            $_SESSION["admin"] = true;
+            $_SESSION["admin"] = 1;
           } else {
-            $_SESSION["admin"] = false;
+            $_SESSION["admin"] = 0;
           }
 
           $_SESSION['id'] = $row['id'];
@@ -143,6 +143,7 @@
                         <button type="submit" name="login">Login</button>
                     </div>
                     <p>Heb je nog geen account? <br> <a href="register.php">Registreer</a></p>
+                    <p>Ben jij jouw wachtwoord vergeten? <br> <a href="ask-forgot-pass.php">Herstel wachtwoord</a></p>
                 </form>
             </div>
         </main>

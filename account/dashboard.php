@@ -210,17 +210,11 @@
                     </div>
                     <?php if($_SESSION['admin'] == true) : ?>
                         <div class="user-btns">
-                            <h3>Pas het menu aan:</h3> 
-                            <a href="logout.php" class="first-btn">Bekijk items</a>
-                            <a href="reset-name.php">Pas item aan</a>
-                            <a href="reset-mail.php">Voeg item toe</a>
-                            <a href="reset-pass.php" class="last-btn">Verwijder item</a>
-                        </div>
-                        <div class="user-btns">
                             <h3>Meer informatie:</h3> 
-                            <a href="logout.php" class="first-btn">Bekijk Gebruikers</a>
-                            <a href="reset-name.php">Bekijk orders</a>
-                            <a href="reset-mail.php" class="last-btn">Bekijk reseveringen</a>
+                            <a href="admin-menu.php" class="first-btn">Bekijk items</a>
+                            <a href="admin-users.php">Bekijk Gebruikers</a>
+                            <a href="admin-orders.php">Bekijk orders</a>
+                            <a href="admin-resev.php" class="last-btn">Bekijk reseveringen</a>
                         </div>
                     <?php endif; ?>
                 </div>

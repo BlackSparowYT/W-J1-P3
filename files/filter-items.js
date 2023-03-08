@@ -11,11 +11,11 @@ firstChoice.addEventListener('change', function() {
     secondChoice.children[0].addEventListener('change', function() {
         if (this.value == 'vegetarian') {
             if (firstChoice.value == 'pizza') {
-                result.innerHTML = '<a class="filterbtn" href="index.php?cat=pizza&sub_cat=vegie">Filter</a>';
+                result.innerHTML = '<a class="filterbtn" href="index.php?cat=pizza&sub_cat=veggi">Filter</a>';
             } else if (firstChoice.value == 'bijgerecht') {
-                result.innerHTML = '<a class="filterbtn" href="index.php?cat=bijgerecht&sub_cat=vegie">Filter</a>';
+                result.innerHTML = '<a class="filterbtn" href="index.php?cat=bijgerecht&sub_cat=veggi">Filter</a>';
             }else if (firstChoice.value == 'all') {
-                result.innerHTML = '<a class="filterbtn" href="index.php?sub_cat=vegie">Filter</a>';
+                result.innerHTML = '<a class="filterbtn" href="index.php?sub_cat=veggi">Filter</a>';
             }
             result.style.display = 'block';
         } else if (this.value == 'all2') {

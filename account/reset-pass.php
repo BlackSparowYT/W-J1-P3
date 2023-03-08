@@ -2,6 +2,10 @@
     // Start a session
     session_start();
 
+    if (!isset($_SESSION['loggedin'])) {
+        header("location: login.php");
+    }
+
     // Connect to the database
     require_once("../files/config.php");
 
