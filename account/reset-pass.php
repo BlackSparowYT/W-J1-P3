@@ -119,11 +119,11 @@
                         <input type="password" name="old_password" required>
                     </div>
                     <div>
-                        <h3>Nieuwe Wachtwoord</h3>
+                        <h3>Nieuw Wachtwoord</h3>
                         <input type="password" name="new_password1" required>
                     </div>
                     <div>
-                        <h3>Bevestig Nieuwe Wachtwoord</h3>
+                        <h3>Bevestig Nieuw Wachtwoord</h3>
                         <input type="password" name="new_password2" required>
                     </div>
                     <div>

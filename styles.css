@@ -6,15 +6,20 @@
     --white: #FFF;
     --white-trans1: #ffffff2f;
     --white-trans2: #ffffff64;
-
-    --gray-light: #b0948d;
-    --gray-light-trans: #b0948dd8;
-    --gray: #C2B8B2;
-    --gray-trans: #C2B8B2d8;
-    --gray-dark: #8A716A;
-    --gray-dark-trans: #8A716Ad8;
+    
+    --gray-light: #505050;
+    --gray: #383838;
+    --gray-dark: #242424;
 
     --black: #000;
+
+    --beige-light: #b0948d;
+    --beige-light-trans: #b0948dd8;
+    --beige: #C2B8B2;
+    --beige-trans: #C2B8B2d8;
+    --beige-dark: #8A716A;
+    --beige-dark-trans: #8A716Ad8;
+
 
     --blue-light: #197BBD;
     --blue: #125E8A;
@@ -80,18 +85,26 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--white-trans1);
+    background: var(--gray-dark);
+    transition: all .3s;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--white-trans1);
+    background: var(--gray);
     border-radius: 5px;
-    transition: all 0.3s ease-in-out;
+    transition: all .3s;
+    overflow: hidden;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--white-trans2);
-    transition: all 0.3s ease-in-out;
+    background: var(--gray-light);
+    transition: all .3s;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--gray-dark);
+    transition: all .3s;
+    border-bottom-right-radius: 10px;
 }
 
 
@@ -628,7 +641,7 @@ canvas {
 .about-block .progression-block {
     margin-bottom: 20px;
     height: 20px;
-    background-color: var(--gray);
+    background-color: var(--beige);
     border-radius: 10px;
 }
 
@@ -741,7 +754,7 @@ canvas {
 
 .menu-page {
     height: auto;
-    background-color: var(--gray-dark);
+    background-color: var(--beige-dark);
 }
 
 /** Menu | Hero **/
@@ -753,7 +766,7 @@ canvas {
     justify-content: center;
     flex-direction: column;
     z-index: 50;
-    background-color: var(--gray);
+    background-color: var(--beige);
 }
 
 .menu-page .hero .hero-text {
@@ -846,7 +859,7 @@ canvas {
     width: 300px;
     margin: 2%;
     height: 350px;
-    background-color: var(--gray);
+    background-color: var(--beige);
     color: var(--black);
     transition: all 0.3s;
     border-radius: 10px;
@@ -933,7 +946,7 @@ canvas {
 .admin-page, .admin-item {
     height: calc(100vh - 80px);
     margin-top: 80px;
-    background-color: var(--gray-dark);
+    background-color: var(--beige-dark);
 }
 
 .forum .errors {
@@ -949,7 +962,7 @@ canvas {
     justify-content: center;
     flex-direction: column;
     z-index: 50;
-    background-color: var(--gray);
+    background-color: var(--beige);
 }
 
 .account-page .hero .hero-text {
@@ -977,7 +990,7 @@ canvas {
     min-height: 380px;
     width: 30%;
     height: 50vh;
-    background-color: var(--gray);
+    background-color: var(--beige);
     color: var(--black);
     display: flex;
     align-items: center;
@@ -993,7 +1006,7 @@ canvas {
 }
 
 .account-page .forum input {
-    margin: 5px 0;
+    margin: 0 0 15px;
     background-color: var(--transparent);
     border: none;
     border-bottom: 2px var(--black) solid;
@@ -1035,6 +1048,17 @@ canvas {
     color: var(--blue);
 }
 
+.account-page .forum form > div  {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.account-page .forum form h3,
+.account-page .forum form p  {
+    text-align: center;
+}
+
 
 
 /*** Dash Page | Content ***/
@@ -1042,7 +1066,7 @@ canvas {
     margin: 2.5vh 5% 0;
     width: 90%;
     height: calc(75vh - 80px);
-    background-color: var(--gray);
+    background-color: var(--beige);
     color: var(--black);
     border-radius: 20px;
 }
@@ -1244,3 +1268,82 @@ canvas {
     margin: 3px 10px;
 }
 
+
+
+
+
+.account-page .dash-content .table-content {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.account-page .dash-content .table-content h3 {
+    color: var(--black);
+}
+
+.account-page .dash-content .table-content {
+    max-width: 50%;
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    height: 90%;
+}
+
+
+.account-page .dash-content .table-content h3 {
+    position: fixed;
+}
+.account-page .dash-content .table-content table {
+    margin-top: 20px;
+}
+
+.account-page .dash-content .table-content p {
+    color: var(--black);
+}
+
+.account-page .dash-content .table-content th {
+    text-align: left;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.account-page .dash-content .table-content td {
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.account-page .dash-content .table-div {
+    margin-top: 20px;
+    overflow: scroll;
+    max-height: 100%;
+}
+
+.account-page .dash-content table {
+    margin-top: 0 !important;
+}
+
+.account-page .dash-content .menu-div {
+    margin-top: 20px;
+    overflow: scroll;
+}
+
+
+.account-page .dash-content 
+.table-content tr:nth-child(even) {
+    background-color: #A99C95;
+    border: 5px;
+}
+.account-page .dash-content 
+.table-content tr:nth-child(odd) {
+    background-color: #B5A9A3;
+    border: 5px;
+}

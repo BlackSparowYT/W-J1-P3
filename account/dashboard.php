@@ -148,7 +148,7 @@
                                 echo '<tr>';
                                 echo '<th><p>Order ID</p></th>';
                                 echo '<th><p>User ID</p></th>';
-                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Datum</p></th>';
                                 echo '<th><p>Order</p></th>';
                                 echo '</tr>';
 
@@ -179,7 +179,7 @@
                                 echo '<tr>';
                                 echo '<th><p>Order ID</p></th>';
                                 echo '<th><p>User ID</p></th>';
-                                echo '<th><p>Tijd</p></th>';
+                                echo '<th><p>Datum</p></th>';
                                 echo '<th><p>Order</p></th>';
                                 echo '</tr>';
 
