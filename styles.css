@@ -251,8 +251,8 @@ nav #navbar-desktop {
 /* Mobile Version */
 
 nav #navbar-mobile {
-    height: 60px;
-    background-color: transparent;
+    height: 80px;
+    background-color: var(--blue);
     position: fixed;
     top: 0;
     width: 100%;
@@ -270,7 +270,7 @@ nav #navbar-mobile {
     width: 180px;
     transition: all 0.2s ease-in-out;
     text-decoration: none;
-    color: #FFF;
+    color: var(--black);
 }
 
 #navbar-mobile .navbar-mobile-items a:hover {
@@ -278,17 +278,17 @@ nav #navbar-mobile {
 }
 
 #navbar-mobile .navbar-mobile-items h3 {
-    padding: calc(30px - 26.4px/2 - 5px);
+    padding: calc(40px - 26.4px/2 - 5px);
     margin: 10px;
-    background-color: #ffffff2f;
+    background-color: var(--blue-dark);
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     text-align: center;
 }
 
 #navbar-mobile .navbar-mobile-items a:hover h3 {
-    background-color: #ffffff64;
-    padding: calc(30px - 26.4px/2 - 5px);
+    background-color: var(--blue-light);
+    padding: calc(40px - 26.4px/2 - 5px);
     margin: 10px;
     transition: all 0.3s ease-in-out;
     border-radius: 10px;
@@ -301,9 +301,21 @@ nav #navbar-mobile {
     padding-left: 30px;
 }
 
+.navbar-mobile-sitelogo {
+    float: left;
+    display: flex;
+    flex-direction: row;
+    padding-left: 30px;
+}
+
 .navbar-mobile-sitename h2 {
-    padding: calc(30px - 28.8px/2 - 5px) 0;
+    padding: calc(40px - 28.8px/2 - 5px) 0;
     margin: 10px 0;
+}
+
+.navbar-mobile-sitelogo img {
+    padding: 0;
+    height: 80px;
 }
 
 
@@ -1135,6 +1147,7 @@ canvas {
 
 .account-page .dash-content .table-content h3 {
     color: var(--black);
+    position: fixed;
 }
 
 .account-page .dash-content .table-content .order,
@@ -1150,10 +1163,6 @@ canvas {
     text-align: left;
 }
 
-
-.account-page .dash-content .table-content h3 {
-    position: fixed;
-}
 .account-page .dash-content .table-content table {
     margin-top: 20px;
 }
@@ -1214,6 +1223,14 @@ canvas {
     width: fit-content;
     height: 95%;
 }
+
+.admin-page .admin-content .table-content 
+.table-div > .menu-table {
+    width: fit-content;
+    height: 95%;
+    overflow-y: scroll;
+}
+
 .admin-page .admin-content .table-div {
     height: 100%;
 }
@@ -1224,12 +1241,25 @@ canvas {
     display: inline-block;
     margin-top: 10px;
 }
-.admin-page .admin-content .table-div > a {
-    color: var(--black);
-    width: 60%;
+
+.admin-page .admin-content .table-div > #btn-back {
+    color: var(--white);
+    width: calc(35% - 15px);
+    min-width: fit-content;
     display: inline-block;
     text-align: right;
     margin-top: 10px;
+    margin-right: 15px;
+}
+
+.admin-page .admin-content .table-div > #btn-add {
+    color: var(--white);
+    width: calc(25% - 15px);
+    min-width: fit-content;
+    display: inline-block;  
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 15px;
 }
 
 
@@ -1267,5 +1297,49 @@ canvas {
 .admin-menu tr:nth-child(odd) {
     background-color: #918782;
     border: 5px;
+}
+
+
+
+
+
+/** Admin Items **/
+
+.admin-item .forum form .flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.admin-item .forum form .flexbox > div {
+    margin: 0 10px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 

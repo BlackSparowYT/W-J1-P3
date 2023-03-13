@@ -107,36 +107,39 @@
                         $query = "SELECT * FROM `menu`";
 
                         echo "<div class='table-div'>";
-                        echo "<h3>Items op ons menu:</h3>";
-                        echo "<a href='admin-item.php?action=add'><p>Voeg item toe</p></a>";
-                        echo "<table class='menu-table'>";
-                        echo '<tr>';
-                        echo '<th><p>Item ID</p></th>';
-                        echo '<th><p>Item Naam</p></th>';
-                        echo '<th><p>Item Prijs</p></th>';
-                        echo '<th><p>Categorie</p></th>';
-                        echo '<th><p>Sub Categorie</p></th>';
-                        echo '</tr>';
+                            echo "<h3>Items op ons menu:</h3>";
+                            echo "<p id='btn-back'><a href='dashboard.php'>&#x2190; Terug</a></p>";
+                            echo "<p id='btn-add'><a href='admin-item.php?action=add'>&#43; Voeg item toe</a></p>";
+                            echo "<div class='menu-table'>";
+                                echo "<table>";
+                                    echo '<tr>';
+                                        echo '<th><p>Item ID</p></th>';
+                                        echo '<th><p>Item Naam</p></th>';
+                                        echo '<th><p>Item Prijs</p></th>';
+                                        echo '<th><p>Categorie</p></th>';
+                                        echo '<th><p>Sub Categorie</p></th>';
+                                    echo '</tr>';
 
                         if ($is_run = mysqli_query($link, $query)) {
                             while ($result = mysqli_fetch_assoc($is_run)) {
-                                echo '<tr>';
-                                echo '<td><p>' . $result['id'] . '</p></td>';
-                                echo '<td><p>' . $result['name'] . '</p></td>';
-                                echo '<td><p>' . $result['prijs'] . '</p></td>';
-                                echo '<td><p>' . $result['categorie'] . '</p></td>';
-                                echo '<td><p>' . $result['sub_categorie'] . '</p></td>';
-                                echo '<td><p>';
-                                echo '<a href="admin-item.php?action=edit&id=' . $result['id'] . '">Edit</a> | ';
-                                echo '<a href="admin-item.php?action=delete&id=' . $result['id'] . '">Delete</a>';
-                                echo '</p></td>';
-                                echo '</tr>';
+                                    echo '<tr>';
+                                        echo '<td><p>' . $result['id'] . '</p></td>';
+                                        echo '<td><p>' . $result['name'] . '</p></td>';
+                                        echo '<td><p>' . $result['prijs'] . '</p></td>';
+                                        echo '<td><p>' . $result['categorie'] . '</p></td>';
+                                        echo '<td><p>' . $result['sub_categorie'] . '</p></td>';
+                                        echo '<td><p>';
+                                            echo '<a href="admin-item.php?action=edit&id=' . $result['id'] . '">Edit</a> | ';
+                                            echo '<a href="admin-item.php?action=delete&id=' . $result['id'] . '">Delete</a>';
+                                        echo '</p></td>';
+                                    echo '</tr>';
                             }
                         } else {
                             echo "Error in execution!";
                         }
 
-                        echo "</table>";
+                                echo "</table>";
+                            echo "</div>";
                         echo "</div>";
                     ?>
                 </div>

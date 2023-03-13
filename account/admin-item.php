@@ -174,9 +174,6 @@
                 </div>
             </div>
 
-            
-
-            
             <div class="forum">
                 <form method="post">
                     <?php if($action == 'add'): ?>
@@ -313,7 +310,11 @@
                             </div>
                         </div>
                     <?php endif; ?>
-                    <p><a href="admin-menu.php">&#x2190; Terug</a></p>
+                    <p>
+                        <a href="admin-menu.php">&#x2190; Terug</a>
+                        ||
+                        <a href="admin-menu.php">Help?</a>
+                    </p>
                 </form>
             </div>
         </main>
