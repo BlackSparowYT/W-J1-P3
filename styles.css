@@ -850,7 +850,7 @@ canvas {
     justify-content: flex-start;
     align-items: center;
     pointer-events: auto;
-    margin-bottom: 55px;
+    padding-bottom: 55px;
     padding-top: 20px;
 }
 
@@ -912,8 +912,8 @@ canvas {
 }
 
 .menu-page .flexbox .block .sub_categorie {
-    width: 45px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     position: relative;
     top: -65px;
     left: 10px;
@@ -1187,163 +1187,85 @@ canvas {
 
 
 
-.account-page .dash-content .admin-menu {
-    width: fit-content;
-    height: fit-content;
-    max-height: 100%;
-    display: block;
-    margin-left: 30px;
-}
 
-.account-page .dash-content .admin-menu h3 {
-    margin-top: 10px;
-    position: fixed;
-}
 
-.account-page .dash-content .admin-menu h3 {
-    margin-top: 10px;
-    width: 40%;
-    position: inherit;
-    display: inline-block;
-}
 
-.account-page .dash-content .admin-menu a p {
-    margin-top: 0;
-    width: calc(60% - 15px);
-    margin-right: 15px;
-    text-align: right;
-    position: inherit;
-    color: var(--white);
-    display: inline-block;
-}
 
-.account-page .dash-content .admin-menu table {
-    margin-top: 0;
-}
 
-.account-page .dash-content .admin-menu .table-div {
-    margin: 30px 0 0;
-    max-height: 60vh;
-    margin-top: 0;
-    overflow-y: scroll;
-}
 
-.account-page .dash-content .admin-item table tbody
 
-.account-page .dash-content .admin-menu p {
+
+/*** Admin Page | Content ***/
+.admin-page .admin-content {
+    margin: 2.5vh 5% 0;
+    width: 90%;
+    height: calc(75vh - 80px);
+    background-color: var(--beige);
     color: var(--black);
-}
-
-.account-page .admin-menu-block {
-    display: flex;
-    justify-content: center;
-}
-
-.account-page .dash-content 
-.admin-menu tr:nth-child(even) {
-    background-color: #A99C95;
-    border: 5px;
-}
-.account-page .dash-content 
-.admin-menu tr:nth-child(odd) {
-    background-color: #B5A9A3;
-    border: 5px;
-}
-
-
-
-.admin-item .forum {
-    height: fit-content;
-    width: fit-content;
-    padding: 20px;
-    max-height: 70vh;
-}
-
-.admin-item .forum .flexbox {
-    display: flex;
-    justify-content: center;
-}
-
-.admin-item .forum .flexbox div {
-    margin: 3px 10px;
-}
-
-
-
-
-
-.account-page .dash-content .table-content {
-    width: 100%;
-    height: 50%;
+    border-radius: 20px;
+    
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:center;
     align-items: flex-start;
 }
 
-.account-page .dash-content .table-content h3 {
+.admin-page .admin-content .table-content {
+    width: fit-content;
+    height: 95%;
+}
+.admin-page .admin-content .table-div {
+    height: 100%;
+}
+
+.admin-page .admin-content .table-div > h3 {
     color: var(--black);
+    width: 40%;
+    display: inline-block;
+    margin-top: 10px;
 }
-
-.account-page .dash-content .table-content {
-    max-width: 50%;
-    width: 50%;
-    margin-top: 20px;
-    margin-left: 50px;
-    margin-right: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    text-align: left;
-    height: 90%;
-}
-
-
-.account-page .dash-content .table-content h3 {
-    position: fixed;
-}
-.account-page .dash-content .table-content table {
-    margin-top: 20px;
-}
-
-.account-page .dash-content .table-content p {
+.admin-page .admin-content .table-div > a {
     color: var(--black);
+    width: 60%;
+    display: inline-block;
+    text-align: right;
+    margin-top: 10px;
 }
 
-.account-page .dash-content .table-content th {
+
+.admin-page .admin-content .table-content table {
+    margin-top: 10px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.admin-page .admin-content .table-content table tbody {
+    height: 300px;
+}
+
+.admin-page .admin-content .table-content p { color: var(--black); }
+
+.admin-page .admin-content .table-content th {
     text-align: left;
     padding: 5px;
     border-radius: 5px;
 }
-
-.account-page .dash-content .table-content td {
+.admin-page .admin-content .table-content td {
     padding: 5px;
     border-radius: 5px;
     text-align: center;
 }
 
-.account-page .dash-content .table-div {
-    margin-top: 20px;
-    overflow: scroll;
-    max-height: 100%;
-}
 
-.account-page .dash-content table {
-    margin-top: 0 !important;
-}
-
-.account-page .dash-content .menu-div {
-    margin-top: 20px;
-    overflow: scroll;
-}
-
-
-.account-page .dash-content 
-.table-content tr:nth-child(even) {
-    background-color: #A99C95;
+.admin-page .admin-content 
+.admin-menu tr:nth-child(even) {
+    background-color: #ada199;
     border: 5px;
 }
-.account-page .dash-content 
-.table-content tr:nth-child(odd) {
-    background-color: #B5A9A3;
+
+.admin-page .admin-content 
+.admin-menu tr:nth-child(odd) {
+    background-color: #918782;
     border: 5px;
 }
+

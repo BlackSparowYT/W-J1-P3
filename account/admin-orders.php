@@ -99,7 +99,7 @@
                     <h1 class="t1">Orders</h1>
                 </div>
             </div>
-            <div class="dash-content admin-menu-block">
+            <div class="dash-content admin-orders-block">
                 <div class="table-content">
                     <?php
                         require_once('../files/config.php');

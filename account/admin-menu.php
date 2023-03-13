@@ -99,16 +99,16 @@
                     <h1 class="t1">Menu Items</h1>
                 </div>
             </div>
-            <div class="dash-content admin-menu-block">
+            <div class="admin-content">
                 <div class="table-content admin-menu">
                     <?php
                         require_once('../files/config.php');
 
                         $query = "SELECT * FROM `menu`";
 
+                        echo "<div class='table-div'>";
                         echo "<h3>Items op ons menu:</h3>";
                         echo "<a href='admin-item.php?action=add'><p>Voeg item toe</p></a>";
-                        echo "<div class='table-div'>";
                         echo "<table class='menu-table'>";
                         echo '<tr>';
                         echo '<th><p>Item ID</p></th>';

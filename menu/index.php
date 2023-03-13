@@ -260,11 +260,11 @@
 
                         // See if a sub categorie is selected and prepair the correct statement
                         if ($sub_cat != NULL) {
-                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE bijgerecht LIKE 'pizza' AND sub_categorie LIKE ?");
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht' AND sub_categorie LIKE ?");
                             $stmt->bind_param("s", $sub_cat);
                             
                         } else {
-                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE bijgerecht LIKE 'pizza'");
+                            $stmt = $link->prepare("SELECT * FROM `menu` WHERE categorie LIKE 'bijgerecht'");
                         }
 
                         echo "</div>";
@@ -303,7 +303,7 @@
                 ?> 
             </div>
         </main>
-        
+
         <footer>
 
         </footer>
