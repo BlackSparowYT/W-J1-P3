@@ -313,7 +313,7 @@
                     <p>
                         <a href="admin-menu.php">&#x2190; Terug</a>
                         ||
-                        <a href="admin-menu.php">Help?</a>
+                        <a href="admin-item-help.php">Help?</a>
                     </p>
                 </form>
             </div>

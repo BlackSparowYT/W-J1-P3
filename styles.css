@@ -1289,13 +1289,13 @@ canvas {
 
 .admin-page .admin-content 
 .admin-menu tr:nth-child(even) {
-    background-color: #ada199;
+    background-color: #A99C95;
     border: 5px;
 }
 
 .admin-page .admin-content 
 .admin-menu tr:nth-child(odd) {
-    background-color: #918782;
+    background-color: #B5A9A3;
     border: 5px;
 }
 
@@ -1315,31 +1315,3 @@ canvas {
 .admin-item .forum form .flexbox > div {
     margin: 0 10px;
 }
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-}
-
